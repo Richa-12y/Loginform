@@ -9,7 +9,7 @@ const Login = () => {
   const [isLogined, setIsLogined] = useState(false); //this is for check user is login or not
   const [userid, setUserid] = useState(null);
   const [userDetails, setUserDetails] = useState(null);
-
+  const [userDataBase, setUserDataBase] = useState([]);
   console.log(email);
   console.log(psw);
   const handleClick = (e) => {
@@ -31,6 +31,10 @@ const Login = () => {
       alert("Invalid Email id");
     }
   };
+
+  const handleClickAdmin = (e) => {
+    setUserDataBase(UserData);
+  };
   //   here useEffect started
 
   useEffect(() => {
@@ -38,6 +42,9 @@ const Login = () => {
     setUserDetails(data);
   }, [userid]);
   console.log(userDetails);
+  // const { name, website, username, phone } = userDetails[0];
+
+  console.log(userDataBase);
   return (
     <>
       {!isLogined ? (
@@ -78,7 +85,125 @@ const Login = () => {
           </form>
         </div>
       ) : (
-        <div>User details it will be display here</div>
+        <>
+          <div className="admin-container">
+            {userDetails.length !== 0 ? (
+              <div className="user-container">
+                <div className="button-container-outside">
+                  {userDetails[0].userTypr !== "user" && (
+                    <button
+                      className="button-container"
+                      onClick={handleClickAdmin}
+                    >
+                      view
+                    </button>
+                  )}
+                </div>
+
+                <div className="inside-container">
+                  <h1>Welcome to Your Profile</h1>
+                  <div className="icon-container">
+                    <i
+                      class="fa fa-solid fa-user"
+                      style={{ fontSize: "25px", color: "white" }}
+                    ></i>
+                  </div>
+                  <div className="user-details-container">
+                    <div>
+                      <sapn className="details">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        UserName:-
+                      </sapn>
+                      {userDetails[0].username}
+                    </div>
+                    <div>
+                      <sapn className="details">
+                        <i class="fa fa-user" aria-hidden="true"></i>Name:-
+                      </sapn>
+                      {userDetails[0].name}
+                    </div>
+                    <div>
+                      <sapn className="details">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        Phone:-
+                      </sapn>
+                      {userDetails[0].phone}
+                    </div>
+                    <div>
+                      <sapn className="details">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        Email:-
+                      </sapn>
+                      {userDetails[0].email}
+                    </div>
+                    <div>
+                      <sapn className="details">
+                        <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                        WebsiteName:-
+                      </sapn>
+                      {userDetails[0].website}
+                    </div>
+                  </div>
+                  <div className="address-container">
+                    <span className="details">
+                      <i class="fa fa-home" aria-hidden="true"></i>Address:-
+                    </span>
+                    <div>
+                      <div>{userDetails[0].address.city}</div>
+                      <div>{userDetails[0].address.street}</div>
+                      <div>{userDetails[0].address.suite}</div>
+                      <div>{userDetails[0].address.zipcode}</div>
+                    </div>
+                  </div>
+                  <div className="company-container">
+                    <span className="details">
+                      <i class="fa fa-building" aria-hidden="true"></i>
+                      Office Address:-
+                    </span>
+                    <div>
+                      <div>{userDetails[0].company.bs}</div>
+                      <div>{userDetails[0].company.catchPhrase}</div>
+                      <div>{userDetails[0].company.name}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="nothing">Nothing is here</div>
+            )}
+
+            {userDataBase.length !== 0 && (
+              <div className="admin-container">
+                <table>
+                  <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Company</th>
+                    <th>Country</th>
+                  </tr>
+                  <>
+                    {userDataBase.map((el, i) => {
+                      return (
+                        <tr>
+                          <td key={i}>{el.id}</td>
+                          <td>{el.name}</td>
+                          <td>{el.username}</td>
+                          <td>{el.email}</td>
+                          <td>{el.phone}</td>
+                          <td>{el.company.name}</td>
+                          <td>{el.address.city}</td>
+                        </tr>
+                      );
+                    })}
+                  </>
+                </table>
+              </div>
+            )}
+          </div>
+        </>
       )}
     </>
   );

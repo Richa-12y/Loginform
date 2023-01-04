@@ -113,3 +113,131 @@ button {
 .social i {
   margin-right: 4px;
 }
+
+.user-container {
+  display: flex;
+  background: linear-gradient(to right, #100f0e, #181818);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.inside-container {
+  border-radius: 50px;
+  background: #080808;
+  box-shadow: inset 20px -20px 60px #1c1c1c, inset -20px 20px 60px #383737;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  width: 400px;
+  height: 550px;
+}
+.icon-container {
+  width: 60px;
+  height: 60px;
+  background: #090606;
+  box-shadow: inset 20px -20px 60px #2c2323, inset -20px 20px 60px #060606;
+  border-radius: 50%;
+  border: 2px solid rgb(68, 68, 68);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h1 {
+  color: green;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.user-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: white;
+}
+.details {
+  color: rgb(189, 185, 185);
+  padding: 0.5em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.details i {
+  padding: 0.3em;
+}
+
+.address-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: white;
+}
+.company-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: white;
+  width: 200px;
+}
+
+.rating-container {
+  background: #ead9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.inside-rating {
+  background: #ead9d9;
+  box-shadow: inset 20px -20px 60px #4f4e4e, inset -20px 20px 60px #7b7676;
+  width: 500px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 20px;
+}
+.button-container-outside {
+  padding: 15px;
+}
+
+.button-container {
+  width: 150px;
+  color: white;
+  background: #0a0a0a;
+  box-shadow: inset 20px -20px 60px #0a0a0a, inset -20px 20px 60px #7b7676;
+  outline: none;
+  border-radius: 15px;
+  border: none;
+}
+.admin-container {
+  background: #080808;
+  box-shadow: inset 20px -20px 60px #1c1c1c, inset -20px 20px 60px #383737;
+  width: 100vw;
+  display: flex;
+}
+
+table {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+}
+
+table,
+th,
+td {
+  border: 1px solid white;
+  border-collapse: collapse;
+  color: white;
+}
+th {
+  color: green;
+  border: 1px solid green;
+}
